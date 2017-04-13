@@ -22,7 +22,7 @@
                 id="bindyDataFormat" type="Csv"/>
         </dataFormats>
         <route id="simple-route">
-            <from id="_from1" uri="mqtt:mqtt.temp.receiver?host=tcp://broker-amq-mqtt-smartgateway.rhel-cdk.10.1.2.2.xip.io:30883&amp;subscribeTopicNames=iotdemo/#/#&amp;reconnectBackOffMultiplier=2&amp;connectAttemptsMax=5&amp;userName=admin&amp;password=change12_me"/>
+            <from id="_from1" uri="mqtt:mqtt.temp.receiver?host=tcp://broker-amq-mqtt:1883&amp;subscribeTopicNames=iotdemo/#/#&amp;reconnectBackOffMultiplier=2&amp;connectAttemptsMax=5&amp;userName=admin&amp;password=change12_me"/>
             <log id="route-log" message=">>> ${body}"/>
             <bean beanType="com.redhat.demo.MyHelper" id="_bean1"
                 method="enhanceMessage" ref="myHelper"/>
