@@ -20,7 +20,7 @@
         <property name="connectionFactory" ref="pooledConnectionFactory"/>
         <property name="concurrentConsumers" value="4"/>
     </bean>
-    <bean class="org.apache.activemq.camel.component.ActiveMQComponent" id="activemq">
+    <bean class="org.apache.activemq.camel.component.ActiveMQComponent" id="activemqGateway">
         <property name="configuration" ref="jmsConfig"/>
     </bean>
 
@@ -38,7 +38,7 @@
                 method="enhanceMessage" ref="myHelper"/>
             <unmarshal id="_unmarshal1" ref="bindyDataFormat"/>
             <convertBodyTo id="_convertBodyTo1" type="java.lang.String"/>
-            <to id="_to1" uri="activemq:queue:message.to.rules_cep"/>
+            <to id="_to1" uri="activemqGateway:queue:message.to.rules_cep"/>
         </route>
     </camelContext>
 </beans>
